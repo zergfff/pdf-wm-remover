@@ -1,0 +1,33 @@
+[package]
+name = "pdf-wm-remover"
+version = "0.1.0"
+edition = "2021"
+description = "PDF watermark remover: content-stream level text watermark removal & permission stripping (Rust port of Smart-PDF-Watermark-Remover)"
+license = "MIT"
+
+[features]
+default = ["cli"]
+cli = ["dep:clap", "dep:anyhow"]
+gui = ["dep:eframe", "dep:rfd", "dep:anyhow"]
+
+[[bin]]
+name = "pdf-wm-remover"
+path = "src/main.rs"
+required-features = ["cli"]
+
+[[bin]]
+name = "pdf-wm-remover-gui"
+path = "src/bin/gui.rs"
+required-features = ["gui"]
+
+[dependencies]
+lopdf = "0.44"
+clap = { version = "4", features = ["derive"], optional = true }
+anyhow = { version = "1", optional = true }
+eframe = { version = "0.29", optional = true }
+rfd = { version = "0.15", optional = true }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
