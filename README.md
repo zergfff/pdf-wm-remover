@@ -1,5 +1,7 @@
 # PDF Watermark Remover (Rust)
 
+[![Build Windows Release](https://github.com/zergfff/pdf-wm-remover/actions/workflows/build.yml/badge.svg)](https://github.com/zergfff/pdf-wm-remover/actions/workflows/build.yml)
+
 PDF 去水印工具 —— Rust 版重构。核心逻辑与
 [Smart-PDF-Watermark-Remover](https://github.com/zergfff/Smart-PDF-Watermark-Remover)
 （Python/PyQt6）一致，但删除方式完全不同：
